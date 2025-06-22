@@ -1,40 +1,48 @@
-# Welcome to Remix!
+## leostack
 
-- 📖 [Remix docs](https://remix.run/docs)
+## Tech Stack
 
-## Development
+- Remix
+- Prisma
+- Better Auth
+- Tailwind CSS
+- Shadcn UI
+- PostgreSQL
 
-Run the dev server:
+## Features
 
-```sh
-npm run dev
-```
+- Authentication
+- Authorization
+- User Management
+- Role-Based Access Control
+- Email and Password Authentication
+- Social Authentication (Google, Github, etc)
+- Database Integration (PostgreSQL)
+- Multi-Persona Support
+- [ ] ENV Check
+- [ ] Logging
+- [ ] Deployment
+- [ ] Documentation
+- [ ] CI/CD
+- [ ] Rate Limiting
+- [ ] Caching
+- [ ] Testing
 
-## Deployment
+## Setup
 
-First, build your app for production:
+1. Clone the repository
+2. Run `pnpm install`
+3. Run `pnpm run prisma`
+4. Run `pnpm run dev`
+5. Open the browser and go to `http://localhost:5173`
 
-```sh
-npm run build
-```
+## License
 
-Then run the app in production mode:
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-```sh
-npm start
-```
+## How to contribute
 
-Now you'll need to pick a host to deploy it to.
+This project is open source and we welcome contributions. Please feel free to submit a pull request.
+Read about how to contribute [here](CONTRIBUTING.md).
 
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+test

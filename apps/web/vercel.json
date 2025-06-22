@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm prisma && pnpm build",
+  "outputDirectory": "dist",
+  "framework": "remix",
+  "installCommand": "pnpm install && pnpm prisma"
+}

@@ -1,18 +1,20 @@
 import { vitePlugin as remix, vitePlugin } from "@remix-run/dev";
-import RemixExternalConfigs from "./remix.config";
+import { flatRoutes } from "remix-flat-routes";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-
-declare module "@remix-run/node" {
-  interface Future {
-    v3_singleFetch: true;
-  }
-}
+import path from "path";
+import { vercelPreset } from "@vercel/remix/vite";
+import RemixExternalConfigs from "./remix.config";
 
 export default defineConfig({
   plugins: [
     vitePlugin(RemixExternalConfigs),
     remix({
+      presets: [vercelPreset()],
+      routes: async (defineRoutes) => {
+        return flatRoutes("routes", defineRoutes);
+      },
+      ssr: true,
       future: {
         v3_fetcherPersist: true,
         v3_relativeSplatPath: true,
@@ -23,4 +25,19 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  build: {
+    sourcemap: true,
+  },
+  /* shadcn */
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./app"),
+    },
+  },
+  server: {
+    hmr: {
+      overlay: true,
+    },
+  },
+  clearScreen: false,
 });
