@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/leocodeio/leostack-turbo/compare/v1.0.1...v1.1.0) (2025-06-24)
+
+
+### Features
+
+* **imager:** imager ([1b61ff9](https://github.com/leocodeio/leostack-turbo/commit/1b61ff96a9d41e851f36b6d510b5fd06b5fb5840))
+
 ## [1.0.1](https://github.com/leocodeio/leostack-turbo/compare/v1.0.0...v1.0.1) (2025-06-24)
 
 
