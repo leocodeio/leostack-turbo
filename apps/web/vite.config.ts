@@ -1,14 +1,12 @@
-import { vitePlugin as remix, vitePlugin } from "@remix-run/dev";
+import { vitePlugin as remix } from "@remix-run/dev";
 import { flatRoutes } from "remix-flat-routes";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import path from "path";
 import { vercelPreset } from "@vercel/remix/vite";
-import RemixExternalConfigs from "./remix.config";
 
 export default defineConfig({
   plugins: [
-    vitePlugin(RemixExternalConfigs),
     remix({
       presets: [vercelPreset()],
       routes: async (defineRoutes) => {
@@ -22,6 +20,7 @@ export default defineConfig({
         v3_singleFetch: true,
         v3_lazyRouteDiscovery: true,
       },
+      
     }),
     tsconfigPaths(),
   ],
