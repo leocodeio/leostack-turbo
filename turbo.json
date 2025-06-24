@@ -10,7 +10,7 @@
     },
     "dev": {
       "dependsOn": ["^db:gen"],
-      "cache": false,
+      "cache": true,
       "persistent": true
     },
     "lint": { "dependsOn": ["^lint"] },
