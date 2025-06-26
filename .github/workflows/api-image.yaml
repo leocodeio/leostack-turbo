@@ -3,9 +3,6 @@ name: Create and publish API Docker image
 on:
   push:
     branches: ['deploy']
-    paths:
-      - './apps/api/**'
-      - '.github/workflows/api-image.yaml'
 
 env:
   REGISTRY: ghcr.io
