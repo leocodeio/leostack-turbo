@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/leocodeio/leostack-turbo/compare/v1.9.0...v1.9.1) (2025-06-26)
+
+
+### Bug Fixes
+
+* **removed path dependency:** removed path dependency ([4923f4a](https://github.com/leocodeio/leostack-turbo/commit/4923f4ab2ec0742ee5725846acd32a1b2c005d4c))
+
 # [1.9.0](https://github.com/leocodeio/leostack-turbo/compare/v1.8.3...v1.9.0) (2025-06-26)
 
 
