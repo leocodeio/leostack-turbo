@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/leocodeio/leostack-turbo/compare/v1.9.1...v1.9.2) (2025-06-26)
+
+
+### Performance Improvements
+
+* **updated env and dockerfile for api too:** updated env and dockerfile for api too ([fc30098](https://github.com/leocodeio/leostack-turbo/commit/fc30098e0960bd31917f7118cb640da797bd42e1))
+
 ## [1.9.1](https://github.com/leocodeio/leostack-turbo/compare/v1.9.0...v1.9.1) (2025-06-26)
 
 
