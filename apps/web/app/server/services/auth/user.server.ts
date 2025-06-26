@@ -1,4 +1,4 @@
-import { prisma } from "~/server/services/auth/db.server";
+import { prisma } from "@leostack/db";
 
 /*
  * update user

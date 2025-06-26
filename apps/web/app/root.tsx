@@ -61,7 +61,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const { getThemeColor } = await getThemeColorSession(request);
   const ENV = {
     NODE_ENV: process.env.NODE_ENV || "development",
-    apiUrl: process.env.API_URL || "http://localhost:5173",
+    apiUrl: process.env.APP_BASE_URL || "http://localhost:5173",
   };
   return {
     theme: getTheme(),

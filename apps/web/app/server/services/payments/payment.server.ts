@@ -1,4 +1,4 @@
-import { prisma } from "../auth/db.server";
+import { prisma } from "@leostack/db";
 
 import { WebhookSubscriptionCanceledPayload } from "@polar-sh/sdk/models/components/webhooksubscriptioncanceledpayload.js";
 import { WebhookOrderPaidPayload } from "@polar-sh/sdk/models/components/webhookorderpaidpayload.js";

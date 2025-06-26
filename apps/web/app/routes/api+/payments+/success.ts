@@ -1,5 +1,6 @@
 import { json, LoaderFunctionArgs, redirect } from "@remix-run/node";
-import { getSession, prisma } from "~/server/services/auth/db.server";
+import { getSession } from "~/server/services/auth/db.server";
+import { prisma } from "@leostack/db";
 
 /*
     This route is used to handle the success of the payment.
