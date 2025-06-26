@@ -38,7 +38,7 @@ COPY --from=deps /usr/src/app/ ./
 COPY . .
 
 # Generate Prisma client and types
-# RUN pnpm turbo run db:gen --filter=@leostack/db
+RUN pnpm turbo run db:gen --filter=@leostack/db
 
 # Build the web app with its dependencies
 RUN pnpm turbo run build --filter=@leostack/web
