@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/leocodeio/leostack-turbo/compare/v1.8.3...v1.9.0) (2025-06-26)
+
+
+### Features
+
+* **web docker done:** web docker done ([69ec8d0](https://github.com/leocodeio/leostack-turbo/commit/69ec8d0bfd914c50ae52294d4b4124fc19a56c5f))
+
 ## [1.8.3](https://github.com/leocodeio/leostack-turbo/compare/v1.8.2...v1.8.3) (2025-06-26)
 
 
