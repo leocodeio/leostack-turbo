@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/leocodeio/leostack-turbo/compare/v1.8.1...v1.8.2) (2025-06-26)
+
+
+### Performance Improvements
+
+* **test:** test ([5e512bf](https://github.com/leocodeio/leostack-turbo/commit/5e512bf19addd63658850ff0cf94da4844c7c5b2))
+
 ## [1.8.1](https://github.com/leocodeio/leostack-turbo/compare/v1.8.0...v1.8.1) (2025-06-26)
 
 
