@@ -1,6 +1,5 @@
 name: Create and publish Web Docker image
 
-
 on:
   push:
     branches: ["deploy"]

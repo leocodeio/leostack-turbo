@@ -368,6 +368,7 @@ importers:
       '@prisma/client':
         specifier: ^6.6.0
         version: 6.10.1(prisma@6.10.1(typescript@5.8.2))(typescript@5.8.2)
+    devDependencies:
       prisma:
         specifier: ^6.6.0
         version: 6.10.1(typescript@5.8.2)

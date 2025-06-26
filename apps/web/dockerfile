@@ -1,8 +1,6 @@
 # Base node image for all stages
 FROM node:20-bullseye-slim AS base
 
-# Set environment to production for base and inheriting layers
-ENV NODE_ENV=production
 
 # Install openssl for Prisma's usage during runtime
 RUN apt-get update && apt-get install -y openssl \
@@ -45,6 +43,9 @@ RUN pnpm turbo run build --filter=@leostack/web
 
 # Final minimal production image
 FROM base AS production
+
+# Set environment to production for base and inheriting layers
+ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
