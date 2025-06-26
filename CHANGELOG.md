@@ -3,6 +3,22 @@
 
 ### Features
 
+* **updated veriosn tag:** updated veriosn tag ([c9a3424](https://github.com/leocodeio/leostack-turbo/commit/c9a34242c4f40049e6d8049347a205094b002dee))
+* **v3:** v3 ([39c8d4a](https://github.com/leocodeio/leostack-turbo/commit/39c8d4ad4f79c01170afa3edda4b29f98ef303f4))
+* **version:** version ([0bf55b6](https://github.com/leocodeio/leostack-turbo/commit/0bf55b6dbb5d09cc86c832c6194047198869771c))
+
+
+### Performance Improvements
+
+* **donot know test 1 docker action:** donot know test 1 docker action ([a71e858](https://github.com/leocodeio/leostack-turbo/commit/a71e85823defae74904794675cdb3f64b04bceac))
+* **prerun dbgen:** prerun dbgen ([a606e7a](https://github.com/leocodeio/leostack-turbo/commit/a606e7a0a933af4a42198300d65d722cd87351ec))
+* **v2 - iamge:** v2 - iamge ([84e9e21](https://github.com/leocodeio/leostack-turbo/commit/84e9e21a5adee21ea2c5bc44e24897f9206a6fef))
+
+# [1.3.0](https://github.com/leocodeio/leostack-turbo/compare/v1.2.0...v1.3.0) (2025-06-26)
+
+
+### Features
+
 * **v3:** v3 ([39c8d4a](https://github.com/leocodeio/leostack-turbo/commit/39c8d4ad4f79c01170afa3edda4b29f98ef303f4))
 * **version:** version ([0bf55b6](https://github.com/leocodeio/leostack-turbo/commit/0bf55b6dbb5d09cc86c832c6194047198869771c))
 
