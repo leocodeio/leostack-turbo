@@ -5,4 +5,5 @@
 # run, which is why this file exists in the first place.
 # Learn more: https://community.fly.io/t/sqlite-not-getting-setup-properly/4386
 
+cd /usr/src/app/packages/db && pnpm db:migrate
 cd /usr/src/app/apps/web && pnpm start
