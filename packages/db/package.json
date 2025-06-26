@@ -9,11 +9,10 @@
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
-    "@better-auth/cli": "^1.2.10"
-  },
-  "devDependencies": {
+    "@better-auth/cli": "^1.2.10",
     "prisma": "^6.6.0"
   },
+  "devDependencies": {},
   "exports": {
     ".": "./src/index.ts"
   }
