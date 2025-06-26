@@ -3,6 +3,9 @@ name: Create and publish Web Docker image
 on:
   push:
     branches: ["deploy"]
+    paths:
+      - '.'
+      - '.github/workflows/web-image.yaml'
 
 env:
   REGISTRY: ghcr.io
