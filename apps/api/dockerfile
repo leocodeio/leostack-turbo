@@ -1,24 +1,84 @@
+# Base node image for all stages
+FROM node:20-bullseye-slim AS base
 
-# Use the official Node.js image as the base image
-FROM node:20
+# Install openssl for Prisma's usage during runtime
+RUN apt-get update && apt-get install -y openssl \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory inside the container
+# Install pnpm globally
+RUN npm install -g pnpm
+
+# Install dependencies including devDependencies in a separate stage
+FROM base AS deps
+
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Copy workspace files
+COPY package.json ./
+COPY pnpm-workspace.yaml ./
+COPY pnpm-lock.yaml ./
+COPY apps/api/package.json ./apps/api/package.json
+COPY packages/db/package.json ./packages/db/package.json
 
-# Install the application dependencies
-RUN npm install
+# Install all dependencies
+RUN pnpm install --frozen-lockfile
 
-# Copy the rest of the application files
+# Build stage
+FROM base AS build
+
+WORKDIR /usr/src/app
+
+# Copy deps and workspace files
+COPY --from=deps /usr/src/app/ ./
+
+# Copy entire source code
 COPY . .
 
-# Build the NestJS application
-RUN npm run build
+# Build the api app with its dependencies
+RUN pnpm turbo run build --filter=@leostack/api
 
-# Expose the application port
+# Final minimal production image
+FROM base AS production
+
+# Set environment to production for base and inheriting layers
+ENV NODE_ENV=production
+
+WORKDIR /usr/src/app
+
+# Copy workspace configuration files
+COPY --from=build /usr/src/app/package.json ./package.json
+COPY --from=build /usr/src/app/pnpm-workspace.yaml ./pnpm-workspace.yaml
+COPY --from=build /usr/src/app/pnpm-lock.yaml ./pnpm-lock.yaml
+COPY --from=build /usr/src/app/apps/api/package.json ./apps/api/package.json
+COPY --from=build /usr/src/app/packages/db/package.json ./packages/db/package.json
+
+# Copy node_modules
+COPY --from=build /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/apps/api/node_modules ./apps/api/node_modules
+COPY --from=build /usr/src/app/packages/db/node_modules ./packages/db/node_modules
+
+# Copy built application files
+COPY --from=build /usr/src/app/apps/api/dist ./apps/api/dist
+
+# Copy Prisma schema and migrations
+COPY --from=build /usr/src/app/packages/db/prisma ./packages/db/prisma
+
+# Copy turbo configuration
+COPY --from=build /usr/src/app/turbo.json ./turbo.json
+
+# Set environment variables
+ENV PORT=3000
+ENV NODE_ENV=production
+
+# Create .turbo directory and set permissions
+RUN mkdir -p .turbo/cache && \
+    chown -R node:node /usr/src/app
+
+# Use non-root user for security
+USER node
+
+# Expose the port
 EXPOSE 3000
 
-# Command to run the application
-CMD ["node", "dist/main"]
+# Start the application
+CMD ["npx", "nest","start"]
