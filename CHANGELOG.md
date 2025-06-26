@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/leocodeio/leostack-turbo/compare/v1.1.0...v1.2.0) (2025-06-26)
+
+
+### Features
+
+* **Updated dockerfile:** Updated dockerfile ([8e04953](https://github.com/leocodeio/leostack-turbo/commit/8e049532d2caedf05e27607d879ef9909b0a17ee))
+
 # [1.1.0](https://github.com/leocodeio/leostack-turbo/compare/v1.0.1...v1.1.0) (2025-06-24)
 
 
