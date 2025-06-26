@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/leocodeio/leostack-turbo/compare/v1.8.2...v1.8.3) (2025-06-26)
+
+
+### Performance Improvements
+
+* **remove better auth at build:** remove better auth at build ([e933dbb](https://github.com/leocodeio/leostack-turbo/commit/e933dbb2e214b9553afaf8fad131bf7d47067e4f))
+
 ## [1.8.2](https://github.com/leocodeio/leostack-turbo/compare/v1.8.1...v1.8.2) (2025-06-26)
 
 
