@@ -35,7 +35,7 @@ export default async function handleRequest(
 
   // Get all locale resources dynamically
 
-  await instance.use(initReactI18next).use(Backend).init(getOptions());
+  await instance.use(initReactI18next).use(Backend).init(getOptions(lng));
 
   const controller = new AbortController();
   let didError = false;

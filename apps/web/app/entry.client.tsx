@@ -13,6 +13,7 @@ async function hydrate() {
     .use(initReactI18next)
     .use(LanguageDetector)
     .use(Backend)
+    //@ts-ignore
     .init(getOptions());
 
   startTransition(() => {

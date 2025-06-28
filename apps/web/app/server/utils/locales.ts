@@ -1,12 +1,12 @@
-import type { InitOptions } from 'i18next';
+import type { InitOptions } from "i18next";
 
-export const supportedLngs = ['en', 'es', 'hi', 'ja', 'zh'] as const;
+export const supportedLngs = ["en", "es", "hi", "ja", "zh"] as const;
 export type SupportedLanguages = (typeof supportedLngs)[number];
 
-export const defaultNS = 'common';
-export const fallbackLng: SupportedLanguages = 'en';
+export const defaultNS = "common";
+export const fallbackLng: SupportedLanguages = "en";
 
-export function getOptions(lng = fallbackLng): InitOptions {
+export function getOptions(lng: SupportedLanguages | undefined): InitOptions {
   return {
     supportedLngs,
     fallbackLng,
@@ -22,7 +22,7 @@ export function getOptions(lng = fallbackLng): InitOptions {
           hero: {
             description: "Make your feedback talk",
           },
-        }
+        },
       },
       es: {
         common: {
@@ -31,7 +31,7 @@ export function getOptions(lng = fallbackLng): InitOptions {
           hero: {
             description: "Haz que tu feedback hable",
           },
-        }
+        },
       },
       hi: {
         common: {
@@ -40,7 +40,7 @@ export function getOptions(lng = fallbackLng): InitOptions {
           hero: {
             description: "आपके प्रतिक्रियाओं का बोलने दें",
           },
-        }
+        },
       },
       ja: {
         common: {
@@ -49,7 +49,7 @@ export function getOptions(lng = fallbackLng): InitOptions {
           hero: {
             description: "あなたのフィードバックを話す",
           },
-        }
+        },
       },
       zh: {
         common: {
@@ -58,16 +58,16 @@ export function getOptions(lng = fallbackLng): InitOptions {
           hero: {
             description: "让你的反馈发声",
           },
-        }
-      }
-    }
+        },
+      },
+    },
   };
 }
 
 export const languageNames: Record<SupportedLanguages, string> = {
-  en: 'English',
-  es: 'Español',
-  hi: 'हिन्दी',
-  ja: '日本語',
-  zh: '中文',
+  en: "English",
+  es: "Español",
+  hi: "हिन्दी",
+  ja: "日本語",
+  zh: "中文",
 };
