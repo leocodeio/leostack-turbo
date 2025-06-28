@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/leocodeio/leostack-turbo/compare/v1.9.3...v1.10.0) (2025-06-28)
+
+
+### Features
+
+* **updated langs:** updated langs ([6c990ae](https://github.com/leocodeio/leostack-turbo/commit/6c990ae4ec9dd56543d278cc9684d3a6244dca29))
+
 ## [1.9.3](https://github.com/leocodeio/leostack-turbo/compare/v1.9.2...v1.9.3) (2025-06-27)
 
 
