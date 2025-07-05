@@ -6,9 +6,10 @@ export type ORIGIN =
   | "role"
   | "source"
   | "companyName";
-
+  
 export type ActionResultSuccess<T> = {
   success: true;
+  origin: ORIGIN;
   message: string;
   data: T | null;
 };
