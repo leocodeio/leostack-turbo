@@ -18,7 +18,7 @@ COPY . .
 RUN pnpm install
 
 # Build the web app with its dependencies
-RUN pnpm turbo run build --filter=@chatpilot/api
+RUN pnpm turbo run build --filter=@leostack/api
 
 # Create .turbo directory and set permissions
 RUN mkdir -p .turbo/cache && \
@@ -31,4 +31,4 @@ USER node
 EXPOSE 3000
 
 # Start the application
-CMD ["pnpm", "start", "--filter=@chatpilot/api"]
+CMD ["pnpm", "start", "--filter=@leostack/api"]
