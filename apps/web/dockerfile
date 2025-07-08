@@ -1,91 +1,28 @@
 # Base node image for all stages
-FROM node:20-bullseye-slim AS base
-
+FROM node:lts AS builder
 
 # Install openssl for Prisma's usage during runtime
-RUN apt-get update && apt-get install -y openssl \
+RUN apt-get update && apt-get install -y openssl curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm globally
-RUN npm install -g pnpm
+RUN npm install -g pnpm@9.0.0
 
-# Install dependencies including devDependencies in a separate stage
-FROM base AS deps
-
+# Set the working directory
 WORKDIR /usr/src/app
-
-# Copy workspace files
-COPY package.json ./
-COPY pnpm-workspace.yaml ./
-COPY pnpm-lock.yaml ./
-COPY apps/web/package.json ./apps/web/package.json
-COPY packages/db/package.json ./packages/db/package.json
-
-# Install all dependencies
-RUN pnpm install --frozen-lockfile
-
-# Build stage
-FROM base AS build
-
-WORKDIR /usr/src/app
-
-# Copy deps and workspace files
-COPY --from=deps /usr/src/app/ ./
 
 # Copy entire source code
 COPY . .
 
-# Generate Prisma client and types
-# RUN pnpm turbo run db:gen --filter=@leostack/db
+# Install all dependencies
+RUN pnpm install
 
 # Build the web app with its dependencies
-RUN pnpm turbo run build --filter=@leostack/web
-
-# Final minimal production image
-FROM base AS production
-
-# Set environment to production for base and inheriting layers
-ENV NODE_ENV=production
-
-WORKDIR /usr/src/app
-
-# Copy workspace configuration files
-COPY --from=build /usr/src/app/package.json ./package.json
-COPY --from=build /usr/src/app/pnpm-workspace.yaml ./pnpm-workspace.yaml
-COPY --from=build /usr/src/app/pnpm-lock.yaml ./pnpm-lock.yaml
-COPY --from=build /usr/src/app/apps/web/package.json ./apps/web/package.json
-COPY --from=build /usr/src/app/packages/db/package.json ./packages/db/package.json
-
-# Copy workspace configuration files
-COPY --from=build /usr/src/app/node_modules ./node_modules
-COPY --from=build /usr/src/app/apps/web/node_modules ./apps/web/node_modules
-COPY --from=build /usr/src/app/packages/db/node_modules ./packages/db/node_modules
-
-# Copy built application files
-COPY --from=build /usr/src/app/apps/web/build ./apps/web/build
-COPY --from=build /usr/src/app/apps/web/public ./apps/web/public
-
-# Copy Prisma schema and migrations
-COPY --from=build /usr/src/app/packages/db/prisma ./packages/db/prisma
-
-# Copy turbo configuration
-COPY --from=build /usr/src/app/turbo.json ./turbo.json
-
-# Set environment variables
-ENV PORT=3000
-ENV NODE_ENV=production
+RUN pnpm turbo run build --filter=@chatpilot/web
 
 # Create .turbo directory and set permissions
 RUN mkdir -p .turbo/cache && \
     chown -R node:node /usr/src/app
-
-
-
-# Copy the start script from the build stage
-COPY --from=build /usr/src/app/apps/web/start.sh ./start.sh
-
-# Make the start script executable
-RUN chmod +x ./start.sh
 
 # Use non-root user for security
 USER node
@@ -94,6 +31,4 @@ USER node
 EXPOSE 3000
 
 # Start the application
-# *) TODO: could be better if we use turbo to start too
-# Start the application
-ENTRYPOINT ["./start.sh"]
+CMD ["pnpm", "start", "--filter=@chatpilot/web"]
