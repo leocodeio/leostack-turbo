@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/leocodeio/leostack-turbo/compare/v1.12.0...v1.12.1) (2025-07-08)
+
+
+### Performance Improvements
+
+* **spell mistake in docker files:** spell mistake in docker files ([4ab4213](https://github.com/leocodeio/leostack-turbo/commit/4ab42136cfcfee6f361649e93e25a841841e4291))
+
 # [1.12.0](https://github.com/leocodeio/leostack-turbo/compare/v1.11.0...v1.12.0) (2025-07-08)
 
 
