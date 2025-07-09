@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/leocodeio/leostack-turbo/compare/v1.12.1...v1.12.2) (2025-07-09)
+
+
+### Performance Improvements
+
+* **changed gen and deploy at db package:** changed gen and deploy at db package ([91349f6](https://github.com/leocodeio/leostack-turbo/commit/91349f6a1e7749ab75942abd862793ed911afb04))
+
 ## [1.12.1](https://github.com/leocodeio/leostack-turbo/compare/v1.12.0...v1.12.1) (2025-07-08)
 
 
