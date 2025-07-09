@@ -4,8 +4,8 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {
-    "db:gen": "npx prisma generate",
-    "db:migrate": "npx prisma generate && npx @better-auth/cli generate --config ../../apps/web/app/server/services/auth/db.server.ts -y && npx prisma migrate deploy"
+    "db:gen": "npx prisma generate && npx @better-auth/cli generate --config ../../apps/web/app/server/services/auth/db.server.ts -y",
+    "db:migrate": "npx prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
